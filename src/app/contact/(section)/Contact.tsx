@@ -80,9 +80,9 @@ const Contact = ({ }) => {
   return (
     <section className="flex h-full w-full items-center justify-center bg-[#070d0f]">
       <div className="flex h-full w-full flex-col items-center justify-center gap-[2.5rem] px-0 pl-0 md:px-2 pt-8 md:pt-24">
-        <div className="flex w-full flex-col lg:flex-row">
-          <div className="relative flex flex-col gap-7  w-full items-center justify-start lg:w-1/2">
-            <p className="text-7xl uppercase font-inter font-[200] text-primary">Contact<br />
+        <div className="flex w-full flex-col lg:flex-row gap-6">
+          <div className="relative flex flex-col gap-7  w-full items-center justify-start lg:w-1/2 px-4 md:px-0">
+            <p className="text-4xl md:text-7xl uppercase font-inter font-[200] text-primary">Contact<br />
               with us</p>
             <div className="w-full md:w-[350px] bg-[#091113] py-6 px-9 flex flex-col items-start justify-center gap-4">
               <p className="text-primary uppercase font-inter font-[200]">Our Email</p>
@@ -101,7 +101,7 @@ const Contact = ({ }) => {
             </div>
           </div>
           <div className="flex w-full flex-col bg-[#070d0f] pb-24 lg:w-1/2 lg:items-center lg:justify-start">
-            <p className="w-4/5 text-start text-xl text-primary font-[200] font-inter uppercase">Make a enquiry now</p>
+            <p className="w-4/5 text-start text-xl text-primary font-[200] font-inter uppercase px-4 md:px-0">Make a enquiry now</p>
             <div className="w-full px-3 lg:w-4/5 lg:px-0">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="h-full">
