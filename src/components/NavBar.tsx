@@ -36,8 +36,8 @@ const Navbar = ({
         <nav
             className={cn(
                 `${position} top-0 z-50 flex h-[10vh] w-full flex-col bg-transparent px-4 transition-all duration-0 ease-in-out justify-between items-center border-b-[1px] border-b-primary`,
-                isScrolled && "bg-black border-b-0",
-                pathname !== "/" && "bg-black border-b-0",
+                isScrolled && "bg-[#070d0f] border-b-0",
+                pathname !== "/" && "bg-[#070d0f] border-b-0",
             )}
         >
             <div

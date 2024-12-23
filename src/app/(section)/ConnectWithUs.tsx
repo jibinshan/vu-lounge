@@ -116,7 +116,7 @@ const ConnectWithUs = ({ }) => {
                   transform: "scale(0.5)"
                 }}
               />
-              <span className="head-connect text-2xl">
+              <span className="head-connect text-2xl md:text-5xl">
                 {text.split("").map((char, index) => (
                   <span key={index} className="key" >
                     {char === " " ? "\u00A0" : char}
