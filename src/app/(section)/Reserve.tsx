@@ -79,6 +79,20 @@ const Reserve = ({ }) => {
 
         })
 
+        gsap.to('.reserve-container', {
+            scrollTrigger: {
+                trigger: ".reserve-container",
+                toggleActions: 'restart none none none',
+                // start: "top 80%", // When the top of the .title enters 80% of the viewport
+                // end: "top 50%",   // When the top of the .title reaches 50% of the viewport
+                // scrub: true
+            },
+            scale: 1,
+            opacity: 1,
+            duration: 0.8
+
+        })
+
         const splitType = document.querySelectorAll(".head-reserve")
         splitType.forEach((char, i) => {
             if (char instanceof HTMLElement) {
@@ -99,25 +113,42 @@ const Reserve = ({ }) => {
 
     }, [])
     return (
-        <section id="reserve" className="relative flex w-full items-center justify-center bg-transparent">
-            <div className="lines">
+        <section id="reserve" className="relative flex w-full md:h-screen items-center justify-center"
+            style={{
+                backgroundImage: "url('/images/home/reservebg.png')",
+                backgroundSize: 'cover',
+            }}
+        >
+            {/* <div className="lines">
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
-            </div>
-            <div className="relative flex flex-col lg:flex-row gap-9 lg:gap-0 h-fit bg-transparent w-full items-center justify-center px-3 lg:p-0 py-12 lg:py-24 overflow-hidden">
-                <div className="z-30 flex flex-col md:flex-row gap-5 lg:gap-9 h-full w-full max-w-[1300px] items-center lg:items-center justify-center">
-                    <div className="w-full md:w-1/2 flex flex-col gap-10 justify-center items-center">
+            </div> */}
+            <div
+                className="absolute w-full h-[28px] bottom-12 left-0"
+                style={{
+                    backgroundImage: "url('/images/line.png')",
+                    backgroundRepeat: "repeat"
+                }}
+            />
+            <div className="relative flex flex-col lg:flex-row gap-9 lg:gap-0 h-fit w-full items-center justify-center px-3 lg:p-0 py-12 lg:py-24 overflow-hidden">
+                <div className="z-30 flex flex-col md:flex-row gap-5 lg:gap-9 h-full w-full max-w-[1300px] items-center lg:items-center justify-start">
+                    {/* <div className="w-full md:w-1/2 flex flex-col gap-10 justify-center items-center">
                         <Image
-                            src='/images/home/DSC03448.png'
+                            src='/images/home/DSC03448.jpg'
                             width={6024}
                             height={4024}
                             alt="reserve"
                             className="max-w-[603] max-h-[581]"
                         />
-                    </div>
-                    <div className="w-full md:w-1/2 flex flex-col gap-10 justify-center items-center">
+                    </div> */}
+                    <div className="w-full md:w-1/2 flex flex-col gap-7 justify-center items-center reserve-container"
+                        style={{
+                            transform: "scale(1.3)",
+                            opacity: 0
+                        }}
+                    >
                         <p className="reserve-one font-stone font-[200] text-xl text-primary md:-ml-[50px]">
                             Reservation
                         </p>
@@ -135,7 +166,7 @@ const Reserve = ({ }) => {
                                 }}
                             />
                         </p>
-                        <p className="reserve-two text-[#AAA9A9] w-full md:max-w-[400px] text-center md:-ml-[50px]">Reserve your table at VU Lounge for an unforgettable dining experience. Ensure your spot to enjoy our exquisite dishes and vibrant ambiance. Book now and let us make your visit special!</p>
+                        <p className="reserve-two text-[#9c9999] w-full md:max-w-[400px] text-center md:-ml-[50px]">Reserve your table at VU Lounge for an unforgettable dining experience. Ensure your spot to enjoy our exquisite dishes and vibrant ambiance. Book now and let us make your visit special!</p>
                         <Link href='/table-booking'>
                             <Button className="hero-button flex items-center justify-center gap-3 px-10 py-7" variant='image'> Book Table</Button>
                         </Link>

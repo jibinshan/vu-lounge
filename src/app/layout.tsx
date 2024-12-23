@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/ham.css";
 import { cn } from "@/lib/utils";
 import { type Metadata } from "next";
-import { Inter, Birthstone } from "next/font/google";
+import { Inter, Birthstone, Open_Sans } from "next/font/google";
 import Providers from "@/app/Providers";
 
 export const metadata: Metadata = {
@@ -23,6 +23,12 @@ const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+const opens = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-open",
+  weight: ["400"],
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -33,6 +39,7 @@ export default function RootLayout({
           "theme-custom font-inter flex min-h-screen text-[#FBEAD2] antialiased",
           stone.variable,
           inter.variable,
+          opens.variable
         )}
       >
         <Providers>{children}</Providers>

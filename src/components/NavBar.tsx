@@ -8,7 +8,7 @@ import CartSheet from "./cart/CartSheet";
 import { BetaMenuActive } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Plus } from "lucide-react";
 import Sidebar from "./Sidebar";
 
 const Navbar = ({
@@ -35,161 +35,83 @@ const Navbar = ({
     return (
         <nav
             className={cn(
-                `${position} top-0 z-50 flex h-[10vh] w-full flex-col items-center bg-transparent p-4 transition-all duration-0 ease-in-out`,
-                isScrolled && "bg-black",
-                pathname !== "/" && "bg-black"
+                `${position} top-0 z-50 flex h-[10vh] w-full flex-col bg-transparent px-4 transition-all duration-0 ease-in-out justify-between items-center border-b-[1px] border-b-primary`,
+                isScrolled && "bg-black border-b-0",
+                pathname !== "/" && "bg-black border-b-0",
             )}
         >
-            <div className="flex w-full max-w-[1300px] flex-col items-center gap-2">
-                <div
-                    className={cn(
-                        "mb-2 flex w-full justify-between md:border-b border-white/30 md:py-2",
-                        (isScrolled || pathname !== "/") && "hidden",
-                    )}
-                >
-                    <div className="hidden flex-row items-center gap-2 md:flex md:gap-4">
-                        <Link
-                            href="https://maps.app.goo.gl/fvPgSt9sysjK8Y9p8"
-                            target="_blank"
-                            className="flex items-center gap-2 text-sm text-white md:text-sm"
-                        >
-                            <MapPin />Country Club, High Street Bushey, London WD23 1TT
-                        </Link>
-                        <p className="flex items-center gap-2 text-sm text-white md:text-sm">
-                            <Clock />
-                            Sun - Thur: 4pm - 12am, Fri - Sat: 4pm - 2am
-                        </p>
-                    </div>
-                    <div className="hidden flex-row items-center gap-2 md:flex md:gap-4">
-                        <Link
-                            href="tel:02083414814"
-                            target="_blank"
-                            className="flex items-center gap-2 text-sm text-white md:text-sm"
-                        >
-                            <Phone />
-                            02083414814
-                        </Link>
-                        <Link
-                            href="info@oralounge.uk"
-                            target="_blank"
-                            className="flex items-center gap-2 text-sm text-white md:text-sm"
-                        >
-                            <Mail />
-                            info@oralounge.uk
-                        </Link>
-                    </div>
-                </div>
-                <div className="flex h-full w-full items-center justify-between">
-                    <Link href="/">
-                        <Image src="/images/home/logo.png" width={55} height={69} alt="logo" />
-                    </Link>
-                    <div className="hidden flex-row items-center justify-center gap-[3.48rem] md:flex">
-                        <Button
-                            asChild
-                            variant="link"
-                            className="px-0 uppercase text-accent"
-                        >
-                            <Link href="/">Home</Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="link"
-                            className="px-0 uppercase text-accent"
-                        >
-                            <Link href="/menu">Menu</Link>
-                        </Button>
-                        {(isScrolled || pathname !== "/") &&
-                            (
-                                <Button
-                                    asChild
-                                    variant="link"
-                                    className="px-0 uppercase text-accent"
-                                >
-                                    <Link href="/table-booking">Table Booking</Link>
-                                </Button>
-                            )
-                        }
-                        <Button
-                            asChild
-                            variant="link"
-                            className="px-0 uppercase text-accent"
-                        >
-                            <Link href="/about-us">About</Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="link"
-                            className="px-0 uppercase text-accent"
-                        >
-                            <Link href="/contact">Contact</Link>
-                        </Button>
-                        {/* <Button
-              asChild
-              variant="link"
-              className="px-0 uppercase text-accent"
+            <div
+                className={cn(
+                    "flex h-full relative w-full items-center justify-between gap-2",
+                )}
             >
-              <Link href="/table-booking">Table Booking</Link>
-            </Button> */}
-                        {/* <Button
-              asChild
-              variant="link"
-              className="px-0 uppercase text-accent"
-            >
-              <Link href="/gift-voucher">Gift Voucher</Link>
-            </Button> */}
-                    </div>
-                    <div className="hidden items-center justify-center gap-[2.5rem] md:flex">
-                        {/* {pathname !== "/" && (
-                            <CartSheet>
-                                <Button
-                                    variant="ghost"
-                                    className="px-1 py-1 hover:bg-transparent"
-                                    disabled={!BetaMenuActive}
-                                >
-                                    <span className="sr-only">Shopping Cart</span>
-                                    <Icons.shoppingCart />
-                                </Button>
-                            </CartSheet>
-                        )} */}
-                        <div className={cn(
-                            "flex",
-                            (isScrolled || pathname !== "/") && "hidden",
-                        )}>
-                            <Link href="/table-booking">
-                                <Button
-                                    className="flex items-center justify-center gap-3 px-10 py-7"
-                                >
-                                    Book A Table
-                                    <Icons.rightArrow className="duration-300 ease-in-out group-hover:translate-x-1" />
-                                </Button>
-                            </Link>
-                        </div>
-                        <div className={cn(
-                            "hidden",
-                            (isScrolled || pathname !== "/") && "flex",
-                        )}>
-                            <Link
-                                href="tel:+4402083414814"
-                                target="_blank"
-                                className="flex items-center gap-2 text-lg text-white md:text-sm"
-                            >
-                                <Phone />
-                                +44 0208 341 48 14
-                            </Link>
-                        </div>
-                    </div>
-                    <Sidebar>
-                        <Button
-                            variant="ghost"
-                            className="px-1 py-1 text-primary hover:bg-transparent hover:text-primary md:hidden"
-                        >
-                            <span className="sr-only">Menu</span>
-                            <EqualizerIcon />
-                        </Button>
-                    </Sidebar>
+                <Link href="/">
+                    <Image src="/images/home/logo.png" width={55} height={69} alt="logo" className="w-12 absolute top-1" />
+                </Link>
+
+                <div className={cn(
+                    "hidden md:flex flex-row items-center min-w-[1300px] h-full justify-center gap-9",
+                )} >
+                    <Button
+                        asChild
+                        variant="link"
+                        className="px-0 uppercase"
+                    >
+                        <Link href="/" className="flex items-center justify-center gap-2 text-white"><span>Home</span> <Plus className="text-primary h-4 w-4" /></Link>
+                    </Button>
+                    <Button
+                        asChild
+                        variant="link"
+                        className="px-0 uppercase text-accent"
+                    >
+                        <Link href="/menu" className="flex items-center justify-center gap-2 text-white"><span>Menu</span> <Plus className="text-primary h-4 w-4" /></Link>
+                    </Button>
+                    <Button
+                        asChild
+                        variant="link"
+                        className="px-0 uppercase text-accent"
+                    >
+                        <Link href="#" className="flex items-center justify-center gap-2 text-white"><span>Drinks & Desserts</span> <Plus className="text-primary h-4 w-4" /></Link>
+                    </Button>
+                    <Button
+                        asChild
+                        variant="link"
+                        className="px-0 uppercase text-accent"
+                    >
+                        <Link href="#" className="flex items-center justify-center gap-2 text-white"><span> Shisha</span> <Plus className="text-primary h-4 w-4" /></Link>
+                    </Button>
+
+                    <Button
+                        asChild
+                        variant="link"
+                        className="px-0 uppercase text-accent"
+                    >
+                        <Link href="/table-booking" className="flex items-center justify-center gap-2 text-white"><span>Reservation</span> <Plus className="text-primary h-4 w-4" /></Link>
+                    </Button>
+                    <Button
+                        asChild
+                        variant="link"
+                        className="px-0 uppercase text-accent"
+                    >
+                        <Link href="/contact" className="flex items-center justify-center gap-2 text-white"><span>Contact Us</span> <Plus className="text-primary h-4 w-4" /></Link>
+                    </Button>
                 </div>
+
+                <Sidebar>
+                    <Button
+                        variant="ghost"
+                        className="px-1 py-1 text-primary hover:bg-transparent hover:text-primary"
+                    >
+                        <span className="sr-only">Menu</span>
+                        <EqualizerIcon />
+                    </Button>
+                </Sidebar>
             </div>
-        </nav >
+
+
+
+
+        </nav>
     );
 };
 

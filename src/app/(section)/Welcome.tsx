@@ -96,15 +96,26 @@ const Welcome = ({ }) => {
         })
 
     }, [])
+    const text = "About us"
     return (
-        <section id="welcome" className="relative flex w-full items-center justify-center bg-transparent">
+        <section id="welcome" className="relative flex w-full items-center justify-center bg-transparent"
+            style={{
+                backgroundImage: "url('/images/home/about/mask.png')",
+                backgroundPosition: "center center",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat"
+            }}
+        >
+            <div className="absolute w-full h-full left-0 top-0 hidden md:flex justify-center items-start">
+                <div className="w-full h-full max-w-[1360px] border-x-[1px] border-x-primary z-30"></div>
+            </div>
             <div className="lines">
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
             </div>
-            <div className="relative flex flex-col lg:flex-row gap-9 lg:gap-0 h-fit bg-transparent w-full items-center justify-center px-3 lg:p-0 py-12 lg:py-24 overflow-hidden">
+            <div className="relative flex flex-col lg:flex-row gap-9 lg:gap-0 h-fit bg-transparent w-full max-w-[1250px] items-center justify-center px-3 lg:p-0 py-12 lg:py-24 overflow-hidden">
                 <div className="z-30 flex flex-col gap-5 lg:gap-9 h-full w-full max-w-[1300px] items-center lg:items-center justify-center">
                     <div className="w-full lg:w-1/2 flex flex-col gap-10 justify-center items-center">
                         <div className="w-full flex flex-col items-center justify-center gap-4">
@@ -117,7 +128,13 @@ const Welcome = ({ }) => {
                                         transform: "scale(0.5)"
                                     }}
                                 />
-                                <span className="head-welcome "> About us</span>
+                                <span className="head-welcome ">
+                                    {text.split("").map((char, index) => (
+                                        <span key={index} className="key head-welcome" >
+                                            {char === " " ? "\u00A0" : char}
+                                        </span>
+                                    ))}
+                                </span>
                                 <Image src='/images/right.png' alt="right" width={44} height={12} className="about-arrow w-fit h-fit"
                                     style={{
                                         transform: "scale(0.5)"
@@ -134,28 +151,28 @@ const Welcome = ({ }) => {
                     </div>
                     <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-center md:justify-between items-center gap-9">
                         <Image
-                            src='/images/home/about/DSC03431.png'
+                            src='/images/home/about/1.png'
                             alt="right"
-                            width={417}
+                            width={484}
                             height={531}
-                            className="about-arrow w-fit h-fit md:w-[400px] md:h-[531px] object-cover"
+                            className="about-arrow w-full md:w-fit md:h-fit object-cover"
                             style={{
                                 transform: "scale(0.5)"
                             }}
                         />
                         <Image
-                            src='/images/home/about/image2.png'
+                            src='/images/home/about/2.png'
                             alt="right"
-                            width={417}
+                            width={484}
                             height={531}
-                            className="hidden md:flex about-arrow w-fit h-fit"
+                            className="about-arrow w-full md:w-fit md:h-fit object-cover"
                         />
                         <Image
-                            src='/images/home/about/DSC03533.png'
+                            src='/images/home/about/1.png'
                             alt="right"
-                            width={417}
+                            width={484}
                             height={531}
-                            className="about-arrow w-fit h-fit md:w-[400px] md:h-[531px] object-cover"
+                            className="about-arrow w-full md:w-fit md:h-fit object-cover"
                             style={{
                                 transform: "scale(0.5)"
                             }}

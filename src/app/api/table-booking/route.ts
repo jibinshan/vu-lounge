@@ -14,9 +14,8 @@ export async function POST(req: Request) {
       date: string;
       time: string;
       request: string;
-      place: string;
     };
-    const { name, email, phone, guests, date, time, request, place } = body;
+    const { name, email, phone, guests, date, time, request } = body;
 
     const smtpOptions = {
       host: "smtp.gmail.com",
@@ -45,7 +44,6 @@ export async function POST(req: Request) {
         Date: ${new Date(date).toLocaleDateString()}
         Time: ${time}
         Special Request: ${request || "None"}
-        place:${place}
       `,
     };
 

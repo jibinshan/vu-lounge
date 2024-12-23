@@ -7,6 +7,7 @@ import { BetaMenuActive } from "@/lib/constants";
 import { formattedItemPrice } from "@/lib/formatted-item-price";
 import { getCurrencySymbol } from "@/lib/get-currency-symbol";
 import { getMenuItemById } from "@/lib/get-menu-item-by-id";
+import { GetModifiersFromItemId } from "@/lib/get-modifiers-from-item-id";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import type { FC } from "react";
@@ -35,17 +36,36 @@ const MenuItemMobile: FC<MenuItemProps> = ({ id }) => {
                 {item.description}
               </p>
               <p className="text-[1.35rem] font-medium leading-[80%] text-[#FBEAD2]">
-                {item.takeawayPrice.value > 0 ? (
-                  <>
-                    {getCurrencySymbol(item.takeawayPrice.currency)}{" "}
-                    {formattedItemPrice(item.takeawayPrice.value)}
-                  </>
-                ) : (
-                  <>
-                    {getCurrencySymbol(item.price.currency)}{" "}
-                    {formattedItemPrice(item.price.value)}
-                  </>
-                )}
+                {
+                  item.takeawayPrice.value > 0 ? (
+                    <>
+                      {getCurrencySymbol(item.takeawayPrice.currency)}{" "}
+                      {formattedItemPrice(item.takeawayPrice.value)}
+                    </>
+                  ) :
+                    <>{
+
+                      item.price.value > 0 ?
+                        (
+
+                          <>
+                            {getCurrencySymbol(item.price.currency)}{" "}
+                            {formattedItemPrice(item.price.value)}
+                          </>
+                        ) :
+                        <>
+                          {item.modifiers.length === 0 ? (<>Free</>)
+                            :
+                            GetModifiersFromItemId(item).map((modifier) => {
+                              if (modifier._id === item.modifiers.find((modifier) => modifier.defaultSelection)?.defaultSelection) {
+                                return `${getCurrencySymbol(modifier.price.currency)} ${modifier.price.value}`
+                              }
+                            })
+                          }
+                        </>
+                    }
+                    </>
+                }
               </p>
             </div>
           </div>

@@ -20,18 +20,15 @@ const JoinUs = ({ }) => {
             Unforgettable Meal
           </h1>
           <p className="max-w-[450px] text-center font-light leading-[160%] text-[#C1B6A6]">
-            Are you ready to indulge in the best steak of your life? Whether
-            it`s an intimate dinner for two or a grand celebration, Ora
-            invites you to savor the flavors we`ve honed over the years. Allow
-            us to reveal what makes dining at Ora a truly unforgettable
-            experience.
+            Experience the perfect blend of flavors and ambiance at Vu Lounge, where every dish is a masterpiece. Let us make your dining experience truly unforgettable with our exceptional cuisine and warm hospitality.
           </p>
           <Button
-            className="group w-fit items-center gap-[1.19rem]  font-semibold uppercase py-6 px-6"
+            variant='image'
+            className="group w-fit items-center gap-[1.19rem]  font-semibold uppercase py-7 px-10"
           >
             <Link href='/table-booking' className="flex items-center justify-center gap-2">
               Book A Table{" "}
-              <Icons.rightArrow className="duration-300 ease-in-out group-hover:translate-x-1 group-hover:text-primary-foreground" />
+              <Icons.rightArrow className="duration-300 ease-in-out group-hover:translate-x-1 group-hover:text-white" />
             </Link>
           </Button>
         </div>

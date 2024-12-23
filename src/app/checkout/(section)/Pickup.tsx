@@ -24,6 +24,7 @@ import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { useRestaurant } from "@/context/RestaurantContext";
+import { calculateServiceCharge } from "@/lib/calculate-service-charge";
 
 // interface PickupProps {
 
@@ -32,11 +33,15 @@ const FormValidation = z.object({
   orderType: z.enum(["PICKUP", "DELIVERY"], {
     required_error: "You need to select a order type.",
   }),
-  date: z.string(),
-  time: z.string(),
-  name: z.string(),
-  phone: z.string(),
-  email: z.string().email(),
+  date: z.string().min(3, "please select date"),
+  time: z.string().min(2, "please select time"),
+  name: z.string().min(2, "please enter name"),
+  phone: z
+    .string()
+    .min(11, "please enter minimum 11 numbers")
+    .max(11, "please enter maximum 11 numbers")
+    .regex(/^\d+$/),
+  email: z.string().email().min(2, "please enter email"),
 });
 
 interface ScheduleTime {
@@ -46,7 +51,7 @@ interface ScheduleTime {
 
 type FormData = z.infer<typeof FormValidation>;
 const Pickup = () => {
-  const { apiUrl, restaurantID } = useRestaurant();
+  const { apiUrl, restaurantID, restaurant } = useRestaurant();
   const router = useRouter();
   const { cartItems, clearCart } = useCart();
   const [pickup, setPickUp] = useState<string>("Standard");
@@ -59,6 +64,7 @@ const Pickup = () => {
     resolver: zodResolver(FormValidation),
     defaultValues: {},
   });
+  const { cartValue } = useCart();
 
   const { mutate } = useMutation({
     mutationFn: async (data: FormData) => {
@@ -68,8 +74,13 @@ const Pickup = () => {
         };
       }> = await axios.post(`${apiUrl}/orders`, {
         _idRestaurant: restaurantID,
-        orderType: 1,
+        orderType: 3,
+        deliveryTime:
+          pickup === "Standard"
+            ? new Date(Date.now() + 20 * 60000)
+            : new Date(`${scheduleTime.date},${scheduleTime.time.split("-")[0]}`),
         description: "Order for " + data.name,
+        orderStatus: "placed_order",
         items: cartItems,
         userDetails: {
           name: data.name,
@@ -78,13 +89,19 @@ const Pickup = () => {
             number: data.phone,
           },
         },
+        // New Additions
+        tip: 0,
+        serviceCharge: calculateServiceCharge(
+          cartValue(),
+          restaurant?.serviceCharge ?? 0,
+        ),
+        preview: false,
       });
 
       return res.data.data;
     },
     onSuccess: (data) => {
       toast("Order created successfully");
-      // deoxy: uncomment this line
       clearCart();
       router.push("/payment/" + data._id);
     },
@@ -108,13 +125,22 @@ const Pickup = () => {
               <MapPin />
             </div>
             <div>
-              <p className="text-md font-semibold">Bavette Steak House</p>
-              <p className="text-sm text-[#666666]">
-                49 Allerton Rd, Liverpool L25 7RE{" "}
-              </p>
+              <p className="text-md font-semibold">{restaurant?.name}</p>
+              <Link
+                className="text-sm text-[#666666]"
+                href={`https://www.google.com/maps/place/${restaurant?.address?.coords[0]},${restaurant?.address?.coords[1]}`}
+                target="_blank"
+              >
+                {restaurant?.address?.firstLine}{" "}
+                {restaurant?.address?.secondLine} {restaurant?.address?.city}{" "}
+                {restaurant?.address?.countryCode}
+              </Link>
             </div>
           </div>
-          <Link href="https://www.google.com/maps/place/Bavette+Steakhouse/@53.3742103,-2.8716884,495m/data=!3m2!1e3!4b1!4m6!3m5!1s0x487b1f31e8b7489b:0xcec4ec7d21dc88df!8m2!3d53.3742071!4d-2.8691135!16s%2Fg%2F11nx3lr3nf?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D">
+          <Link
+            href={`https://www.google.com/maps/place/${restaurant?.address?.coords[0]},${restaurant?.address?.coords[1]}`}
+            target="_blank"
+          >
             <p className="rounded-full px-4 py-3 text-sm">
               <ArrowRight />
             </p>
@@ -237,7 +263,7 @@ const Pickup = () => {
           </div>
           <div className="flex w-full flex-col pt-7 lg:w-4/5 lg:flex-row">
             <div className="/6 w-full lg:w-2"></div>
-            <Button className="w-full bg-[#bc995d] font-semibold">
+            <Button className="h-11 w-full bg-[#bc995d] font-semibold">
               Place Order
             </Button>
           </div>

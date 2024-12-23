@@ -5,7 +5,7 @@ const BavetteStory = ({ }) => {
     <section className="relative flex h-full w-full items-center justify-center lg:py-16 p-4">
       <div className="flex h-full w-full flex-col items-center justify-center gap-11 bg-[#050505]">
         <h2 className="font-playfair text-8xl text-[#262626] md:left-[15%] md:text-8xl text-center">
-          The Ora<br />
+          The Vu<br />
           Story
         </h2>
         <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-[#050505] md:flex-row lg:px-24 lg:py-20">
@@ -15,7 +15,7 @@ const BavetteStory = ({ }) => {
               width={6024}
               height={4024}
               alt="private dining"
-              className="md:h-[600px] w-full rounded-lg md:rounded-none object-cover"
+              className="md:h-[600px] w-full rounded-lg md:rounded-none object-cover rotate-180"
             />
           </div>
           <div className="flex h-full w-full flex-col items-center gap-[2.5rem] p-6 md:w-1/2 md:items-start lg:ml-24">
@@ -23,12 +23,11 @@ const BavetteStory = ({ }) => {
               From Dream<br />
               to Sizzle
             </h1>
-            <p className="max-w-[450px] text-center font-light leading-[160%] text-[#C1B6A6] md:text-start">
-              What began as a dream between two food-loving friends
-              quickly turned into a landmark for steak enthusiasts. In 2010, founders Alex and James combined their love of gourmet dining with a single mission: to create a place where steak isn`t just a meal but a celebration. From humble beginnings in a small kitchen to becoming a renowned steakhouse, Ora has never lost its roots in quality, craftsmanship, and a love for the community.
+            <p className="max-w-full text-center font-light leading-[160%] text-[#C1B6A6] md:text-start">
+              Vu Lounge is a culinary haven born from a passion for creating unforgettable dining experiences. What began as a small six-cover eatery has blossomed into a lively destination, cherished by our guests for its warm ambiance and exceptional cuisine. Our journey reflects dedication, growth, and a commitment to bringing people together through the love of food.
               <br />
               <br />
-              Each cut, carefully selected and perfectly prepared, tells the story of years spent honing our craft. And while we`ve grown over the years, our mission remains the same—to deliver the finest experience in every bite.
+              Nestled in a prime location, Vu Lounge has become a symbol of vibrant hospitality and innovative flavors. Over the years, we’ve expanded threefold, turning our humble beginnings into a thriving hub of community and celebration. Each dish is crafted to perfection, embodying the spirit of excellence that defines Vu Lounge.
             </p>
           </div>
         </div>

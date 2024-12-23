@@ -39,7 +39,6 @@ const MenuItemPopup: FC<MenuItemPopupProps> = ({ children, item }) => {
 
   useEffect(() => {
     let price = item.price.value;
-
     for (const selectedModifier of selectedModifiers) {
       price += selectedModifier.price.value;
     }
@@ -52,15 +51,17 @@ const MenuItemPopup: FC<MenuItemPopupProps> = ({ children, item }) => {
   const handleModifierChange = (modifier: MenuItem, isChecked: boolean) => {
     setSelectedModifiers((prev) =>
       isChecked
-        ? [...prev, modifier]
-        : prev.filter((m) => m._id !== modifier._id),
+        ?
+        [...prev, modifier]
+        :
+        prev.filter((m) => m._id !== modifier._id),
     );
   };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="hidden md:flex flex-col gap-3 max-w-0 border-[1px] border-[#212121] bg-[#070707] lg:max-w-[625px] max-h-[725px] p-0 overflow-y-scroll hidden-scrollbar ">
+      <DialogContent className="hidden md:flex flex-col gap-3 max-w-0 border-[1px] border-[#212121] bg-[#070707] lg:max-w-[625px] max-h-[625px] p-0 overflow-y-scroll hidden-scrollbar ">
         {item.images[0] && (
           <Image
             src={item.images[0]}
@@ -119,12 +120,12 @@ const MenuItemPopup: FC<MenuItemPopupProps> = ({ children, item }) => {
                   <div
                     key={modifier._id}
                     className="flex w-full cursor-pointer items-center gap-4"
-                    onClick={() =>
-                      handleModifierChange(
-                        modifier,
-                        !selectedModifiers.some((m) => m._id === modifier._id),
-                      )
-                    }
+                  // onClick={() =>
+                  //   handleModifierChange(
+                  //     modifier,
+                  //     !selectedModifiers.some((m) => m._id === modifier._id),
+                  //   )
+                  // }
                   >
                     <Checkbox
                       id={modifier._id}
@@ -141,7 +142,7 @@ const MenuItemPopup: FC<MenuItemPopupProps> = ({ children, item }) => {
                     >
                       {modifier.name}
                       {modifier.price &&
-                        ` (+${getCurrencySymbol(modifier.price.currency)}${modifier.price.value})`}
+                        `(+${getCurrencySymbol(modifier.price.currency)}${modifier.price.value})`}
                     </Label>
                   </div>
                 ))}
@@ -150,7 +151,7 @@ const MenuItemPopup: FC<MenuItemPopupProps> = ({ children, item }) => {
           )}
         </div>
         {BetaMenuActive && (
-          <DialogFooter className="flex flex-row justify-end gap-2">
+          <DialogFooter className="w-full h-fit flex flex-row justify-end gap-2">
             <div className="flex h-full w-fit items-center gap-3 bg-[#0F0F0F] p-2 text-[#D5A859]">
               <Button
                 className="h-full w-fit rounded-full bg-transparent p-0 hover:bg-transparent"

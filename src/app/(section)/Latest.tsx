@@ -4,6 +4,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SplitType from 'split-type';
 import Image from "next/image";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+
+const images = [
+    "/images/home/ora/a.png", '/images/home/ora/b.png', '/images/home/ora/c.png', "/images/home/ora/a.png",
+]
 
 const Latest = ({ }) => {
     useEffect(() => {
@@ -76,7 +81,19 @@ const Latest = ({ }) => {
             duration: 0.8
 
         })
+        gsap.to('.carousal-item', {
+            scrollTrigger: {
+                trigger: ".carousal-item",
+                toggleActions: 'restart none none none',
+                // start: "top 80%", // When the top of the .title enters 80% of the viewport
+                // end: "top 50%",   // When the top of the .title reaches 50% of the viewport
+                // scrub: true
+            },
+            scale: 1,
+            opacity: 1,
+            duration: 0.8
 
+        })
         const splitType = document.querySelectorAll(".head-latest")
         splitType.forEach((char, i) => {
             if (char instanceof HTMLElement) {
@@ -104,8 +121,11 @@ const Latest = ({ }) => {
                 <div className="line"></div>
                 <div className="line"></div>
             </div>
-            <div className="relative flex flex-col lg:flex-row gap-9 lg:gap-0 h-fit bg-transparent w-full items-center justify-center px-3 lg:p-0 py-12 lg:py-24 overflow-hidden">
-                <div className="z-30 flex flex-col gap-5 lg:gap-9 h-full w-full max-w-[1300px] items-center lg:items-center justify-center">
+            <div className="absolute w-full h-full left-0 top-0 hidden md:flex justify-center items-start">
+                <div className="w-full h-full max-w-[1360px] border-x-[1px] border-x-primary z-30"></div>
+            </div>
+            <div className="relative flex flex-col lg:flex-row gap-9 lg:gap-0 h-fit bg-transparent w-full max-w-[1250px] items-center justify-center px-3 lg:p-0 py-12 lg:py-24 overflow-hidden">
+                <div className="z-30 flex flex-col gap-5 lg:gap-9 h-full w-full items-center lg:items-center justify-center">
                     <div className="w-full lg:w-1/2 flex flex-col gap-10 justify-center items-center">
                         <div className="w-full flex flex-col items-center justify-center gap-4">
                             <p className="latest-one font-stone font-[200] text-xl text-primary md:-ml-[50px]">
@@ -114,7 +134,7 @@ const Latest = ({ }) => {
                             <p className="font-inter non-italic font-[300] uppercase text-primary text-4xl md:text-6xl text-center flex gap-3 justify-center items-center">
                                 <Image src='/images/left.png' alt="left" width={44} height={12} className="latest-arrow w-fit"
                                     style={{
-                                        transform: "scale(0.5)"
+                                        transform: "scale(0.5)",
                                     }}
                                 />
                                 <span className="head-latest">What`s on<br />
@@ -127,33 +147,34 @@ const Latest = ({ }) => {
                             </p>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
-                    </div>
-                    <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center">
-                        <Image
-                            src='/images/home/ora/a.png'
-                            alt="right"
-                            width={417}
-                            height={531}
-                            className="about-arrow w-fit h-fit"
-                        />
-                        <Image
-                            src='/images/home/ora/b.png'
-                            alt="right"
-                            width={417}
-                            height={531}
-                            className="about-arrow w-fit h-fit"
-                        />
-                        <Image
-                            src='/images/home/ora/c.png'
-                            alt="right"
-                            width={417}
-                            height={531}
-                            className="about-arrow w-fit h-fit"
-                        />
-                    </div>
+                    <Carousel className="w-full md:w-[1100px] carousal-item"
+                        style={{
+                            transform: "scale(1.3)",
+                            opacity: 0
+                        }}
+                    >
+                        <CarouselContent className="">
+                            {images.map((image, index) => (
+                                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 flex justify-center">
+                                    <Image
+                                        src={image}
+                                        alt="right"
+                                        width={417}
+                                        height={531}
+                                        className="about-arrow w-full md:w-[300px] md:h-fit"
+                                    />
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="hidden md:flex h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
+                        <CarouselNext className="hidden md:flex h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
+                        <div className="md:hidden flex items-center justify-center gap-7 pt-12">
+                            <CarouselPrevious className="static h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
+                            <CarouselNext className="static h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
+                        </div>
+                    </Carousel>
                 </div>
-            </div>
+            </div >
         </section >
     );
 };

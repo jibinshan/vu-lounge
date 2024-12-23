@@ -11,6 +11,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Delivery from "./Delivery";
 import Pickup from "./Pickup";
+import { useRestaurant } from "@/context/RestaurantContext";
+import { calculateServiceCharge } from "@/lib/calculate-service-charge";
 
 const Checkout = () => {
   const router = useRouter();
@@ -18,6 +20,7 @@ const Checkout = () => {
   const [checkoutType, setCheckoutType] = useState<"delivery" | "pickup">(
     "delivery",
   );
+  const { restaurant } = useRestaurant();
 
   return (
     <section className="flex h-full w-full items-center justify-center">
@@ -134,9 +137,24 @@ const Checkout = () => {
                     <Button>Apply</Button>
                   </div>
                   <div className="flex justify-between">
+                    <p className="text-sm font-semibold">Service Charge</p>
+                    <p className="text-lg font-semibold">
+                      {getCurrencySymbol("GBP")}{" "}
+                      {calculateServiceCharge(
+                        cartValue(),
+                        restaurant?.serviceCharge ?? 0,
+                      )}
+                    </p>
+                  </div>
+                  <div className="flex justify-between">
                     <p className="text-lg font-semibold">Total Amount</p>
                     <p className="text-lg font-semibold">
-                      {getCurrencySymbol("GBP")} {cartValue()}
+                      {getCurrencySymbol("GBP")}{" "}
+                      {cartValue() +
+                        calculateServiceCharge(
+                          cartValue(),
+                          restaurant?.serviceCharge ?? 0,
+                        )}
                     </p>
                   </div>
                   <div>

@@ -43,10 +43,22 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
                             About
                         </Link> */}
                         <Link
+                            href="#"
+                            className="font-playfair flex w-full justify-start p-0 text-2xl font-normal text-accent text-white"
+                        >
+                            Drinks & Desserts
+                        </Link>
+                        <Link
+                            href="#"
+                            className="font-playfair flex w-full justify-start p-0 text-2xl font-normal text-accent text-white"
+                        >
+                            Shisha
+                        </Link>
+                        <Link
                             href="/table-booking"
                             className="font-playfair flex w-full justify-start p-0 text-2xl font-normal text-accent text-white"
                         >
-                            Table Booking
+                            Reservation
                         </Link>
                         <Link
                             href="/contact"

@@ -83,7 +83,7 @@ export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({
           rows: MenuItem[];
         };
       }> = await axios.get(
-        `${apiUrl}/menu?pageSize=30000&pageNum=1&orderBy=order&orderByDir=asc&filter__idRestaurant=${restaurantID}`,
+        `${apiUrl}/menu?pageSize=30000&pageNum=1&orderBy=order&orderByDir=asc&filter__idRestaurant=${restaurantID}&filter_enabled=true`,
       );
 
       return res.data.data.rows;
@@ -103,7 +103,7 @@ export const RestaurantProvider: React.FC<{ children: React.ReactNode }> = ({
       const data = res.data.data.rows;
       const filteredData = data
         .filter((item) => item.name.toLowerCase() !== "modifiers")
-        .filter((item) => item.order).filter((item) => item.enabled)
+        .filter((item) => item.order)
         .sort((a, b) => a.order - b.order);
       return filteredData
     },

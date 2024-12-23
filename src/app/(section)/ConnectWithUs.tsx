@@ -78,11 +78,16 @@ const ConnectWithUs = ({ }) => {
     })
 
   }, [])
+
+  const text = "Connect us"
   return (
     <section
       id="connect"
       className="relative flex w-full items-center justify-center overflow-hidden bg-transparent"
     >
+      <div className="absolute w-full h-full left-0 top-0 hidden md:flex justify-center items-start">
+        <div className="w-full h-full max-w-[1360px] border-x-[1px] border-x-primary z-30"></div>
+      </div>
       <div className="lines">
         <div className="line"></div>
         <div className="line"></div>
@@ -97,7 +102,7 @@ const ConnectWithUs = ({ }) => {
       // }}
       >
       </div>
-      <div className="max-w-[1300px] px-4 py-12 lg:px-0 lg:py-24 flex flex-col gap-12">
+      <div className="max-w-[1250px] px-4 py-12 lg:px-0 lg:py-24 flex flex-col gap-12">
 
         <div className="flex w-full flex-col items-center justify-center lg:flex-row">
 
@@ -111,7 +116,13 @@ const ConnectWithUs = ({ }) => {
                   transform: "scale(0.5)"
                 }}
               />
-              <span className="head-connect">Connect us</span>
+              <span className="head-connect text-2xl">
+                {text.split("").map((char, index) => (
+                  <span key={index} className="key" >
+                    {char === " " ? "\u00A0" : char}
+                  </span>
+                ))}
+              </span>
               <Image src='/images/right.png' alt="right" width={44} height={12} className="connect-arrow w-fit h-fit"
                 style={{
                   transform: "scale(0.5)"
@@ -124,9 +135,9 @@ const ConnectWithUs = ({ }) => {
               <CarouselNext className="static" />
             </div> */}
         </div>
-        <div className="w-full max-w-[1300px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-6">
+        {/* <div className="w-full max-w-[1300px] flex flex-col md:flex-row justify-center items-center md:justify-between gap-6">
           <div className="relative">
-            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0  z-40"></div>
+            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0 transition-all duration-500 ease-out z-40"></div>
             <Image
               src="/images/home/connect/image1.png"
               width={380}
@@ -136,7 +147,7 @@ const ConnectWithUs = ({ }) => {
             />
           </div>
           <div className="relative">
-            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0 z-40"></div>
+            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0 transition-all duration-500 ease-out z-40"></div>
             <Image
               src="/images/home/connect/image2.png"
               width={380}
@@ -146,7 +157,7 @@ const ConnectWithUs = ({ }) => {
             />
           </div>
           <div className="relative">
-            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0 z-40"></div>
+            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0 transition-all duration-500 ease-out z-40"></div>
             <Image
               src="/images/home/connect/image3.png"
               width={380}
@@ -157,7 +168,7 @@ const ConnectWithUs = ({ }) => {
           </div>
 
           <div className="relative">
-            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0 z-40"></div>
+            <div className="absolute w-full h-full border-[2px] rotate-6 hover:rotate-0 transition-all duration-500 ease-out z-40"></div>
             <Image
               src="/images/home/connect/image4.png"
               width={380}
@@ -166,12 +177,99 @@ const ConnectWithUs = ({ }) => {
               className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
             />
           </div>
+        </div> */}
+
+        <div className="relative hidden md:flex w-full max-w-[1300px]">
+          <div className="w-full grid grid-cols-4">
+            <Image
+              src="/images/home/connect/image1.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/image2.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/image3.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/image4.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/5.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/6.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/7.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/8.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+          </div>
+          <div className="absolute top-[270px] w-full flex justify-center z-40">
+            <Link href='https://www.instagram.com/vulounge?igsh=MXNveGEzZnhsNzJhYg=='>
+              <Button className="hero-button flex items-center justify-center gap-3 px-10 py-7 uppercase" variant='outline'>Follow Us On Instagram</Button>
+            </Link>
+          </div>
         </div>
-        <div className="w-full flex justify-center">
-          <Link href='/table-booking'>
-            <Button className="hero-button flex items-center justify-center gap-3 px-10 py-7 uppercase" variant='outline'>Follow Us On Instagram</Button>
-          </Link>
+
+        <div className="relative md:hidden w-full flex flex-col gap-3 justify-center items-center">
+          <div className="w-full grid grid-cols-1 gap-3">
+            <Image
+              src="/images/home/connect/image1.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+            <Image
+              src="/images/home/connect/image2.png"
+              width={380}
+              height={395}
+              alt="alt"
+              className="max-h-[250px] md:h-[300px] lg:max-h-[400px] z-30 object-cover"
+            />
+
+          </div>
+          <div className=" w-full flex justify-center z-40">
+            <Link href='https://www.instagram.com/vulounge?igsh=MXNveGEzZnhsNzJhYg=='>
+              <Button className="hero-button flex items-center justify-center gap-3 px-10 py-7 uppercase" variant='outline'>Follow Us On Instagram</Button>
+            </Link>
+          </div>
         </div>
+
       </div>
     </section >
   );

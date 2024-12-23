@@ -101,7 +101,7 @@ const Contact = ({ }) => {
                     asChild
                     className="px-1 py-1 hover:bg-transparent"
                   >
-                    <Link href="https://www.instagram.com/oraloungeuk/">
+                    <Link href="https://www.instagram.com/vulounge?igsh=MXNveGEzZnhsNzJhYg==">
                       <span className="sr-only">Instagram</span>
                       <Icons.instagram />
                     </Link>
@@ -121,7 +121,7 @@ const Contact = ({ }) => {
                     asChild
                     className="px-1 py-1 hover:bg-transparent"
                   >
-                    <Link href="https://in.search.yahoo.com/search?fr=mcafee_e-26860_3PC-v&type=F210IN714G91841MNhJ%2bFSIbRCCvKdyV%2f2R5GgXXfvl%2baCFyile5iUQkkoM%3d&p=ora+Lounge+581+Green+Lanes%2C+Harringay+Ladder%2C+London+N8+0RG%2C+United+Kingdom">
+                    <Link href="https://www.google.co.in/search?q=vu+lounge&sca_esv=cc3bedc69ac23800&sxsrf=ADLYWIKr1wXU6P_7HRL5yJxU8MpOEMVf-A%3A1734543055616&source=hp&ei=zwZjZ_avI97Q1e8PpdKv-A4&iflsig=AL9hbdgAAAAAZ2MU3xwRiPiihs6wOHdKn8Nv5k1kA6Ca&gs_ssp=eJzj4tVP1zc0zDAvNqyMN04zYLRSNagwsTA3MzQ1SzZJTLFITDNJsjKoSDY3SEs1TDEzNzA3MrZINvDiLCtVyMkvzUtPBQBLDBKJ&oq=vu+lounge&gs_lp=Egdnd3Mtd2l6Igl2dSBsb3VuZ2UqAggAMgsQLhiABBjHARivATIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjWHVAAWMEQcAB4AJABAJgBeKAB1weqAQMxLji4AQPIAQD4AQGYAgmgAoYIwgIKECMYgAQYJxiKBcICBRAuGIAEwgIIEAAYgAQYsQPCAg4QLhiABBixAxjRAxjHAcICCBAuGIAEGOUEmAMAkgcDMC45oAf3Sg&sclient=gws-wiz">
                       <span className="sr-only">Google</span>
                       <Icons.google />
                     </Link>
@@ -131,7 +131,7 @@ const Contact = ({ }) => {
                     asChild
                     className="px-1 py-1 hover:bg-transparent"
                   >
-                    <Link href="">
+                    <Link href="https://www.facebook.com/VuLounge1?mibextid=ZbWKwL">
                       <span className="sr-only">Facebook</span>
                       <Icons.facebook />
                     </Link>
@@ -153,31 +153,31 @@ const Contact = ({ }) => {
                   <div className="flex flex-col gap-2">
                     <p className="flex gap-7 text-[#b3b3aa]">
                       <span>:</span>
-                      <span>4PM - 12 PM</span>
+                      <span>4:00 PM - 2:00 AM</span>
                     </p>
                     <p className="flex gap-7 text-[#b3b3aa]">
                       <span>:</span>
-                      <span>4 PM - 2 AM</span>
+                      <span>4:00 PM - 12:00 PM</span>
                     </p>
                     <p className="flex gap-7 text-[#b3b3aa]">
                       <span>:</span>
-                      <span>4PM - 12 PM</span>
+                      <span>4:00 PM - 2:00 AM</span>
                     </p>
                     <p className="flex gap-7 text-[#b3b3aa]">
                       <span>:</span>
-                      <span>4 PM - 2 AM</span>
+                      <span>4:00 PM - 2:00 AM</span>
                     </p>
                     <p className="flex gap-7 text-[#b3b3aa]">
                       <span>:</span>
-                      <span>4 PM - 2 AM</span>
+                      <span>4:00 PM - 2:00 AM</span>
                     </p>
                     <p className="flex gap-7 text-[#b3b3aa]">
                       <span>:</span>
-                      <span>4 PM - 2 AM</span>
+                      <span>4:00 PM - 2:00 AM</span>
                     </p>
                     <p className="flex gap-7 text-[#b3b3aa]">
                       <span>:</span>
-                      <span>4 PM - 2 AM</span>
+                      <span>4:00 PM - 2:00 AM</span>
                     </p>
                   </div>
                 </div>
@@ -213,8 +213,8 @@ const Contact = ({ }) => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <Link href='tel:+4402083414814'>
-                    <p>+44 0208 341 48 14</p>
+                  <Link href='tel:+441923862351'>
+                    <p>+44 1923 862351</p>
                   </Link>
                 </div>
               </div>
@@ -225,8 +225,8 @@ const Contact = ({ }) => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <Link href='mailto:info@oralounge.uk'>
-                    <p>info@oralounge.uk</p>
+                  <Link href='mailto:info@vulounge.co.uk'>
+                    <p>info@vulounge.co.uk</p>
                   </Link>
                 </div>
               </div>

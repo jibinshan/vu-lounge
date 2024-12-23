@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import type { FC } from "react";
 
 export const metadata: Metadata = {
-  title: "Contact Ora Lounge",
+  title: "Contact Vu Lounge",
   description:
-    "Get in touch with Ora Lounge for reservations, private events, or inquiries, Green Lanes, Harringay, London, Ora offers an extraordinary dining experience for every occasion.",
+    "Get in touch with Vu Lounge for reservations, private events, or inquiries, Green Lanes, Harringay, Ora offers an extraordinary dining experience for every occasion.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   keywords:
-    "contact Ora Lounge, reservations Green Lanes, Harringay, London",
+    "contact Vu Lounge, reservations Green Lanes, Harringay",
 };
 
 const layout: FC<{

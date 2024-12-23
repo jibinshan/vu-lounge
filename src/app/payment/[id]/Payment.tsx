@@ -60,7 +60,7 @@ const Payment: FC<{
 
   return (
     <StripeWrapper clientSecret={data?.clientSecret}>
-      <PaymentForm />
+      <PaymentForm _id={_id} />
     </StripeWrapper>
   );
 };

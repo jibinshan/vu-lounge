@@ -1,7 +1,7 @@
 "use client";
 import EmblaCarousel from "@/app/(section)/(special)/MenuCarousel";
-import { useRestaurant } from "@/context/RestaurantContext";
 import type { EmblaOptionsType } from "embla-carousel";
+import { useRestaurant } from "@/context/RestaurantContext";
 import { useEffect } from "react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

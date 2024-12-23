@@ -1,9 +1,9 @@
 "use client";
-import { useRestaurant } from "@/context/RestaurantContext";
 import React, { useEffect, useState, type FC } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js/pure";
 import type { Stripe } from "@stripe/stripe-js";
+import { useRestaurant } from "@/context/RestaurantContext";
 
 const StripeWrapper: FC<{
   children: React.ReactNode;

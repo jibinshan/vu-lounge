@@ -106,7 +106,7 @@ const Menu = ({ }) => {
                                 <p className="menu-one font-stone font-[200] text-xl text-primary md:-ml-[50px]">
                                     Special selection
                                 </p>
-                                <p className="font-inter non-italic font-[300] uppercase text-primary text-3xl md:text-6xl text-center flex gap-3 justify-center items-center">
+                                <p className="font-inter non-italic font-[300] uppercase text-primary text-2xl md:text-6xl text-center flex gap-3 justify-center items-center">
                                     <Image src='/images/left.png' alt="left" width={44} height={12} className="menu-arrow w-fit"
                                         style={{
                                             transform: "scale(0.5)"
@@ -135,7 +135,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Beef burger meal</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$32</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£32</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Classic greek salad, barrel aged feta cheese, bread</p>
                                         </div>
@@ -143,7 +143,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Roasted lamb rump</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$25</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£25</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Grilled lamb cutlets, pomegranate glaze, butternut squash</p>
                                         </div>
@@ -151,7 +151,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Pan seared sea bass</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$38</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£38</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Saffron and mussel`s broth, new potatoes, edamame beans</p>
                                         </div>
@@ -159,7 +159,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">King prawns and lobster</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$38</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£38</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Creamy saffron, sauce Vierge</p>
                                         </div>
@@ -167,7 +167,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Citrus cured salmon</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$41</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£41</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Horseradish creme fraiche, beetroot mousse, oil</p>
                                         </div>
@@ -178,7 +178,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Pan seared scallops</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$29</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£29</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Saffron, celeriac puree, black pudding, olive oil</p>
                                         </div>
@@ -186,7 +186,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Baked Camembert</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$25</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£25</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Red onion marmelade, garlic Foccacia bread, grilled figs</p>
                                         </div>
@@ -194,7 +194,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Braised ox cheek ravioli</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$23</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£23</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Mediterranean olives casserole, celeriac puree, mushrooms</p>
                                         </div>
@@ -202,7 +202,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Corn fed chicken</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$17</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£17</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Wild mushrooms, truffle potatoes, braised leeks, carrots</p>
                                         </div>
@@ -210,7 +210,7 @@ const Menu = ({ }) => {
                                             <div className="w-full flex gap-1 items-center">
                                                 <p className="w-auto text-primary text-lg">Nduja pork chicken terrine</p>
                                                 <div className="flex-grow border-y py-[2px] border-y-primary h-[1px]"></div>
-                                                <p className="w-auto flex items-end text-primary text-lg">$41</p>
+                                                <p className="w-auto flex items-end text-primary text-lg">£41</p>
                                             </div>
                                             <p className="text-[#9aa0a2] text-sm">Smoked duck breast, pistachio, smoked pancetta</p>
                                         </div>

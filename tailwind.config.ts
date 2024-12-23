@@ -10,6 +10,7 @@ export default {
         stone: ["var(--font-stone)", ...fontFamily.sans],
         inter: ["var(--font-inter)", ...fontFamily.sans],
         sans: ["Inter", "sans-serif"],
+        opens: ["var(--font-opens)", ...fontFamily.sans],
       },
       borderRadius: {
         lg: "var(--radius)",

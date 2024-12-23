@@ -16,6 +16,7 @@ import SplitType from 'split-type';
 
 const Reviews = ({ }) => {
     const { reviews } = useRestaurant();
+    console.log(reviews, "==review");
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger)
@@ -84,15 +85,20 @@ const Reviews = ({ }) => {
         })
 
     }, [])
+
+    const text = "our clients say"
     return (
         <section className="relative flex h-full w-full justify-center bg-transparent">
+            <div className="absolute w-full h-full left-0 top-0 hidden md:flex justify-center items-start">
+                <div className="w-full h-full max-w-[1360px] border-x-[1px] border-x-primary z-30"></div>
+            </div>
             <div className="lines">
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
             </div>
-            <div className="flex h-full w-full max-w-[1300px] flex-col items-start justify-center gap-4 py-12 md:py-44">
+            <div className="flex h-full w-full max-w-[1300px] flex-col items-start justify-center gap-4 py-12 pb-24">
                 <div className="flex h-full w-full flex-col items-center justify-center gap-2 lg:gap-4">
                     <p className="review-one font-stone font-[200] text-xl text-primary md:-ml-[50px]">
                         Testimonial
@@ -103,7 +109,13 @@ const Reviews = ({ }) => {
                                 transform: "scale(0.5)"
                             }}
                         />
-                        <span className="head-review">our clients say</span>
+                        <span className="head-review">
+                            {text.split("").map((char, index) => (
+                                <span key={index} className="key" >
+                                    {char === " " ? "\u00A0" : char}
+                                </span>
+                            ))}
+                        </span>
                         <Image src='/images/right.png' alt="right" width={44} height={12} className="review-arrow w-fit h-fit"
                             style={{
                                 transform: "scale(0.5)"
@@ -112,15 +124,32 @@ const Reviews = ({ }) => {
                     </p>
                 </div>
                 <div className="flex w-full items-center justify-center p-4">
-                    {reviews && (
-                        <Carousel className="w-full px-4">
-                            <CarouselContent className="ml-4 flex h-fit w-full justify-center gap-4">
-                                {reviews.map((review, index) => (
-                                    <CarouselItem
-                                        key={index}
-                                        className="flex w-full basis-full flex-col gap-6 rounded-2xl px-6 py-8 md:basis-1/3 border-[2px] border-primary"
-                                    >
-                                        <div className="flex w-full items-center gap-2">
+                    <Carousel className="w-full md:w-[1100px]">
+                        <CarouselContent className="">
+                            {reviews?.map((review, index) => (
+                                <CarouselItem key={index} className="md:basis-1/2 flex justify-center">
+                                    <div className="w-full flex flex-col px-3 gap-2">
+                                        <div className="relative w-full py-4 px-4 md:h-[300px] flex flex-col gap-3 justify-center items-center">
+                                            <div
+                                                className="absolute w-full h-full hidden md:flex left-0 top-0 z-10"
+                                                style={{
+                                                    backgroundImage: "url('/images/review.svg')",
+                                                    backgroundSize: "100%",
+                                                    backgroundRepeat: "no-repeat"
+                                                }}
+                                            />
+                                            <div className="flex w-full justify-center z-20">
+                                                <Icons.star key={index} className="text-primary" />
+                                                <Icons.star key={index} className="text-primary" />
+                                                <Icons.star key={index} className="text-primary" />
+                                                <Icons.star key={index} className="text-primary" />
+                                                <Icons.star key={index} className="text-primary" />
+                                            </div>
+                                            <div className="z-20">
+                                                <p className="text-primary line-clamp-5 text-center">{review.text}</p>
+                                            </div>
+                                        </div>
+                                        <div className="w-full flex flex-col items-center justify-center md:pl-8 gap-2">
                                             <Image
                                                 src={
                                                     review.profile_photo_url ||
@@ -130,35 +159,25 @@ const Reviews = ({ }) => {
                                                 height={64}
                                                 alt={review.author_name}
                                             />
-                                            <div className="flex flex-col gap-2">
+                                            <div className="flex flex-col justify-center items-center">
                                                 <p className="text-primary">{review.author_name}</p>
-                                                <span className="text-primary">
+                                                <span className="text-[#9C9995]">
                                                     {review.relative_time_description}
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className="flex w-full">
-                                            {/* {Array.from({ length: review.rating }).map((_, index) => (
-                                                <Icons.star key={index} className="text-primary" />
-                                            ))} */}
-                                            <Icons.star key={index} className="text-primary" />
-                                            <Icons.star key={index} className="text-primary" />
-                                            <Icons.star key={index} className="text-primary" />
-                                            <Icons.star key={index} className="text-primary" />
-                                            <Icons.star key={index} className="text-primary" />
-                                        </div>
-                                        <div className="">
-                                            <p className="text-primary h-[240px]">{review.text}</p>
-                                        </div>
-                                    </CarouselItem>
-                                ))}
-                            </CarouselContent>
-                            <div className="group absolute -bottom-12 left-1/2 flex w-fit -translate-x-1/2 transform items-center gap-2 transition-transform duration-300 ease-in-out">
-                                <CarouselPrevious className="border-[#bc995d] text-[#bc995d] transition-transform duration-300 ease-in-out group-hover:-translate-x-2" />
-                                <CarouselNext className="border-[#bc995d] text-[#bc995d] transition-transform duration-300 ease-in-out group-hover:translate-x-2" />
-                            </div>
-                        </Carousel>
-                    )}
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="hidden md:flex h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl z-40" variant='default' />
+                        <CarouselNext className="hidden md:flex h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl z-40" variant='default' />
+                        <div className="md:hidden flex items-center justify-center gap-7 pt-12">
+                            <CarouselPrevious className="static h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
+                            <CarouselNext className="static h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
+                        </div>
+                    </Carousel>
+
                 </div>
             </div>
         </section>

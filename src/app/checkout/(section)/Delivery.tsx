@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useCart } from "@/context/CartContext";
 import { useRestaurant } from "@/context/RestaurantContext";
+import { calculateServiceCharge } from "@/lib/calculate-service-charge";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -25,12 +26,15 @@ import toast from "react-hot-toast";
 import { z } from "zod";
 
 const FormValidation = z.object({
-  name: z.string(),
-  phone: z.string(),
-  email: z.string().email(),
-  address: z.string(),
-  city: z.string(),
-  pinCode: z.string(),
+  name: z.string().min(2, "please enter name"),
+  phone: z
+    .string()
+    .min(11, "please enter minimum 11 numbers")
+    .max(11, "please enter maximum 11 numbers"),
+  email: z.string().email().min(2, "please enter email"),
+  address: z.string().min(2, "please enter address"),
+  city: z.string().min(2, "please enter city"),
+  pinCode: z.string().min(2, "please enter pincode"),
   notes: z.string().optional(),
 });
 
@@ -42,7 +46,8 @@ interface ScheduleTime {
 type FormData = z.infer<typeof FormValidation>;
 
 const Delivery = () => {
-  const { apiUrl, restaurantID } = useRestaurant();
+  const { apiUrl, restaurantID, restaurant } = useRestaurant();
+  const { cartValue } = useCart();
   const router = useRouter();
   const { cartItems, clearCart } = useCart();
   const [pickup, setPickUp] = useState<string>("Standard");
@@ -63,7 +68,14 @@ const Delivery = () => {
       }> = await axios.post(`${apiUrl}/orders`, {
         _idRestaurant: restaurantID,
         orderType: 2,
+        deliveryTime:
+          pickup === "Standard"
+            ? new Date(Date.now() + 20 * 60000)
+            : new Date(
+                `${scheduleTime.date},${scheduleTime.time.split("-")[0]}`,
+              ),
         description: "Order for " + data.name,
+        orderStatus: "placed_order",
         items: cartItems,
         notes: data.notes,
         userDetails: {
@@ -85,13 +97,19 @@ const Delivery = () => {
             },
           },
         },
+        // New Additions
+        tip: 0,
+        serviceCharge: calculateServiceCharge(
+          cartValue(),
+          restaurant?.serviceCharge ?? 0,
+        ),
+        preview: false,
       });
 
       return res.data.data;
     },
     onSuccess: (data) => {
       toast("Order created successfully");
-      // deoxy: uncomment this line
       clearCart();
       router.push("/payment/" + data._id);
     },
@@ -277,7 +295,7 @@ const Delivery = () => {
           </div>
           <div className="flex w-full flex-col pt-7 lg:w-4/5 lg:flex-row">
             <div className="/6 w-full lg:w-2"></div>
-            <Button className="w-full bg-[#bc995d] font-semibold">
+            <Button className="h-11 w-full bg-[#bc995d] font-semibold">
               Place Delivery Order
             </Button>
           </div>
