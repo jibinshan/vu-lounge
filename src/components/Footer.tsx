@@ -131,11 +131,11 @@ const Footer = ({ }) => {
                     <div className="w-full md:w-1/2 py-4 flex flex-col md:flex-row gap-3 justify-center items-start md:px-10">
                         <div className="w-full md:w-1/2 flex flex-col gap-1 justify-center items-center md:items-start">
                             <p className="font-opens text-xl font-[500] text-[#C9AB81]">Contact</p>
-                            <p className="w-fit items-center justify-center md:justify-start px-0 py-0 font-opens font-[200] text-center md:text-start text-lg text-[#C9AB81]">
+                            <Link href='https://maps.app.goo.gl/D8eQzDhYmqMcdKcA8' className="w-fit items-center justify-center md:justify-start px-0 py-0 font-opens font-[200] text-center md:text-start text-lg text-[#C9AB81]">
                                 Country Club, High Street, <br />Bushey, WD23 1TT<br />
                                 info@vulounge.co.uk<br />
-                                01923 862351
-                            </p>
+                            </Link>
+                            <Link href='tel:01923862351' className="w-fit items-center justify-center md:justify-start px-0 py-0 font-opens font-[200] text-center md:text-start text-lg text-[#C9AB81]">01923 862351</Link>
                         </div>
 
                         <div className="w-full md:w-1/2 flex flex-col gap-1 justify-center items-center md:items-start">

@@ -142,7 +142,7 @@ const Menu = () => {
   return (
     <section className="flex h-full w-full items-center justify-center bg-black">
       <div className="flex h-full w-full max-w-[1300px] flex-col gap-4 px-2 py-[2.5rem] pb-28 md:gap-[2rem]">
-        <div className="fixed top-0 z-50 flex w-full flex-col gap-4 pb-2 pt-3 md:sticky md:gap-2 md:pt-2">
+        <div className="fixed top-0 z-50 flex w-full flex-col gap-4 pb-2 pt-3 md:sticky md:gap-2 md:pt-2 bg-black">
           <div className="flex w-full items-center justify-between gap-4">
             <div className="flex w-full gap-2 pr-4 md:pr-0">
               <div
@@ -178,7 +178,7 @@ const Menu = () => {
                   className={cn(
                     "w-fit border-b-2 border-b-transparent bg-primary px-6 py-4 font-semibold transition-all duration-300 ease-in-out md:bg-transparent",
                     currentCategory === item._id &&
-                      "bg-[#02264E] md:border-b-primary",
+                    "bg-[#02264E] md:border-b-primary",
                     existCategory.find(
                       (categoryid) => categoryid === item._id,
                     ) !== item._id && "hidden w-0 border-0 px-0 py-0",
@@ -206,21 +206,21 @@ const Menu = () => {
                 className={cn(
                   "mt-6 flex w-full flex-col gap-2 lg:mt-0",
                   data._id !==
-                    existCategory.find(
-                      (categoryid) => categoryid === data._id,
-                    ) && "mt-0 hidden w-0 gap-0",
+                  existCategory.find(
+                    (categoryid) => categoryid === data._id,
+                  ) && "mt-0 hidden w-0 gap-0",
                 )}
               >
                 <h1
                   id={data._id}
                   className={cn(
                     data._id === currentCategory &&
-                      "sticky top-[150px] z-40 w-full bg-[#070707] py-3 lg:static lg:top-0",
+                    "sticky top-[150px] z-40 w-full bg-[#070707] py-3 lg:static lg:top-0",
                     "font-sans text-xl font-bold tracking-[0.00938em]",
                     data._id !==
-                      existCategory.find(
-                        (categoryid) => categoryid === data._id,
-                      ) && "h-0 w-0 p-0 tracking-[0px]",
+                    existCategory.find(
+                      (categoryid) => categoryid === data._id,
+                    ) && "h-0 w-0 p-0 tracking-[0px]",
                   )}
                 >
                   {data._id ===
