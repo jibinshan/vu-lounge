@@ -107,7 +107,7 @@ const Special = ({ }) => {
     return (
         <section className="relative flex h-full w-full justify-center bg-[#0f1d22]">
             <div
-                className="absolute w-full h-full left-0 top-0 opacity-30 z-10"
+                className="absolute w-full h-full left-0 top-0 opacity-10 z-10"
                 style={{
                     backgroundImage: "url('/images/modelbg.png')"
                 }}
@@ -149,7 +149,7 @@ const Special = ({ }) => {
                                     />
                                     <div className="flex w-full items-center justify-center pb-6">
 
-                                        <p className="min-h-[80px] max-w-[300px] text-center font-playfair text-4xl text-white">
+                                        <p className="min-h-[80px] max-w-[300px] text-center font-inter text-xl text-primary pt-12">
                                             {formatModelName(model.name)}
                                         </p>
 
@@ -157,8 +157,8 @@ const Special = ({ }) => {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <CarouselPrevious className="hidden md:flex h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
-                        <CarouselNext className="hidden md:flex h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
+                        <CarouselPrevious className="hidden md:flex h-12 w-12 bg-transparent text-primary outline-none shadow-2xl" variant='default' />
+                        <CarouselNext className="hidden md:flex h-12 w-12 bg-transparent text-primary outline-none shadow-2xl" variant='default' />
                         <div className="md:hidden flex items-center justify-center gap-7 pt-12">
                             <CarouselPrevious className="static h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
                             <CarouselNext className="static h-12 w-12 bg-[#0e1719] text-primary outline-none shadow-2xl" variant='default' />
@@ -167,7 +167,7 @@ const Special = ({ }) => {
                 </div>
                 <div className="w-full py-5 flex justify-center items-center">
                     <Link href='/menu'>
-                        <Button variant='image' className="py-6 px-10">View Menu</Button>
+                        <Button variant='image' className="py-6 px-10 bg-button-hover text-white font-inter">View Menu</Button>
                     </Link>
                 </div>
             </div>

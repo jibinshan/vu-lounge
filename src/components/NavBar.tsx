@@ -57,28 +57,28 @@ const Navbar = ({
                         variant="link"
                         className="px-0 uppercase"
                     >
-                        <Link href="/" className="flex items-center justify-center gap-2 text-white"><span>Home</span> <Plus className="text-primary h-4 w-4" /></Link>
+                        <Link href="/" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span>Home</span> <Plus className="text-primary h-4 w-4" /></Link>
                     </Button>
                     <Button
                         asChild
                         variant="link"
                         className="px-0 uppercase text-accent"
                     >
-                        <Link href="/menu" className="flex items-center justify-center gap-2 text-white"><span>Menu</span> <Plus className="text-primary h-4 w-4" /></Link>
+                        <Link href="/menu" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span>Menu</span> <Plus className="text-primary h-4 w-4" /></Link>
                     </Button>
                     <Button
                         asChild
                         variant="link"
                         className="px-0 uppercase text-accent"
                     >
-                        <Link href="#" className="flex items-center justify-center gap-2 text-white"><span>Drinks & Desserts</span> <Plus className="text-primary h-4 w-4" /></Link>
+                        <Link href="/drinks" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span>Drinks & Desserts</span> <Plus className="text-primary h-4 w-4" /></Link>
                     </Button>
                     <Button
                         asChild
                         variant="link"
                         className="px-0 uppercase text-accent"
                     >
-                        <Link href="#" className="flex items-center justify-center gap-2 text-white"><span> Shisha</span> <Plus className="text-primary h-4 w-4" /></Link>
+                        <Link href="/shisha" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span> Shisha</span> <Plus className="text-primary h-4 w-4" /></Link>
                     </Button>
 
                     <Button
@@ -86,14 +86,14 @@ const Navbar = ({
                         variant="link"
                         className="px-0 uppercase text-accent"
                     >
-                        <Link href="/table-booking" className="flex items-center justify-center gap-2 text-white"><span>Reservation</span> <Plus className="text-primary h-4 w-4" /></Link>
+                        <Link href="/table-booking" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span>Reservation</span> <Plus className="text-primary h-4 w-4" /></Link>
                     </Button>
                     <Button
                         asChild
                         variant="link"
                         className="px-0 uppercase text-accent"
                     >
-                        <Link href="/contact" className="flex items-center justify-center gap-2 text-white"><span>Contact Us</span> <Plus className="text-primary h-4 w-4" /></Link>
+                        <Link href="/contact" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span>Contact Us</span> <Plus className="text-primary h-4 w-4" /></Link>
                     </Button>
                 </div>
 

@@ -192,7 +192,12 @@ const Contact = ({ }) => {
                     </div>
                   </div>
                   <div className="flex w-full pt-7">
-                    <Button className="w-full py-6 px-10" disabled={bookTableMutation.isPending}>Enquiry now</Button>
+                    <Button className="w-full py-6 px-10" disabled={bookTableMutation.isPending}
+                      style={{
+                        background: "linear-gradient(97deg, #9D6E2C -13.33%, #A88142 1.07%, #CBB16A 9.43%, #F6ED9B 23.15%)"
+                      }}
+                    >
+                      Enquiry now</Button>
                   </div>
                 </form>
               </Form>

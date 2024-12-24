@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const images = [
-    "/images/home/ora/a.png", '/images/home/ora/b.png', '/images/home/ora/c.png', "/images/home/ora/a.png",
+    "/images/home/ora/a.jpg", '/images/home/ora/b.png', '/images/home/ora/c.png', "/images/home/ora/a.jpg",
 ]
 
 const Latest = ({ }) => {
@@ -161,7 +161,7 @@ const Latest = ({ }) => {
                                         alt="right"
                                         width={417}
                                         height={531}
-                                        className="about-arrow w-full md:w-[300px] md:h-fit"
+                                        className="about-arrow w-full md:w-[300px] md:h-[400px]"
                                     />
                                 </CarouselItem>
                             ))}
