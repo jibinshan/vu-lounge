@@ -78,6 +78,13 @@ const Navbar = ({
                         variant="link"
                         className="px-0 uppercase text-accent"
                     >
+                        <Link href="/our-food" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span>Our Food</span> <Plus className="text-primary h-4 w-4" /></Link>
+                    </Button>
+                    <Button
+                        asChild
+                        variant="link"
+                        className="px-0 uppercase text-accent"
+                    >
                         <Link href="/shisha" className="flex items-center justify-center gap-2 text-white hover:text-primary"><span> Shisha</span> <Plus className="text-primary h-4 w-4" /></Link>
                     </Button>
 
