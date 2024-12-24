@@ -26,7 +26,7 @@ const Footer = ({ }) => {
                                 className="w-fit items-center justify-start px-0 py-0 font-opens font-[200] text-start text-lg text-[#C9AB81]"
                                 asChild
                             >
-                                <Link href="#">Our Food</Link>
+                                <Link href="/menus">Our Food</Link>
                             </Button>
                             <Button
                                 variant="link"
